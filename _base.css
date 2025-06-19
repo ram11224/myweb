@@ -1,0 +1,122 @@
+/*
+ * Base Styles
+ * Global selectors, body, generic classes, and helpers.
+*/
+
+* { 
+    margin: 0; 
+    padding: 0; 
+    box-sizing: border-box;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif; 
+}
+
+body { 
+    height: 100vh; 
+    overflow: hidden; 
+    color: var(--text-color); 
+    background-color: var(--dark-color); 
+}
+
+/* Generic Button Styles with Glow */
+.btn { 
+    padding: 5px 6px; 
+    border-radius: 8px; 
+    border: 1px solid transparent; 
+    cursor: pointer; 
+    font-size: 14px; 
+    transition: all 0.3s ease; 
+    display: flex; 
+    align-items: center; 
+    gap: 5px; 
+    position: relative; 
+    background-color: var(--light-color);
+    color: var(--text-color);
+    border-color: var(--border-color);
+}
+.btn:hover:not(:disabled) {
+    border-color: var(--primary-color);
+    box-shadow: 0 0 10px -2px var(--primary-color);
+    color: var(--primary-color);
+}
+.btn:disabled { 
+    opacity: 0.4; 
+    cursor: not-allowed; 
+}
+.btn-sm { 
+    padding: 5px 10px; 
+    font-size: 12px; 
+}
+.btn-primary { 
+    background-color: var(--primary-color); 
+    color: #FFFFFF; 
+    font-weight: 500;
+    border-color: var(--primary-color);
+}
+.btn-primary:hover:not(:disabled) { 
+    background-color: var(--primary-color);
+    box-shadow: 0 0 12px var(--primary-color); 
+}
+.btn-outline { 
+    background-color: transparent; 
+    border: 1px solid var(--border-color); 
+}
+.btn-outline:hover:not(:disabled) { 
+    background-color: var(--hover-color);
+    border-color: var(--primary-color);
+    box-shadow: 0 0 10px -2px var(--primary-color);
+}
+.btn-danger { 
+    background-color: var(--danger-color); 
+    color: white; 
+    border-color: var(--danger-color);
+}
+.btn-danger:hover:not(:disabled) { 
+    box-shadow: 0 0 12px var(--danger-color);
+}
+.btn-success { 
+    background-color: var(--success-color); 
+    color: white;
+    border-color: var(--success-color);
+}
+.btn-success:hover:not(:disabled) { 
+    box-shadow: 0 0 12px var(--success-color);
+}
+.btn-icon { 
+    width: 38px; 
+    height: 38px; 
+    padding: 8px; 
+    justify-content: center; 
+    gap: 0; 
+}
+
+/* Generic Form Control Styles with Glow */
+.form-control, .form-select { 
+    width: 100%; 
+    padding: 8px 10px; 
+    border: 1px solid var(--border-color); 
+    border-radius: 4px; 
+    font-size: 14px; 
+    background-color: var(--light-color);
+    color: var(--text-color);
+    transition: all 0.3s ease;
+}
+.form-control:focus, .form-select:focus { 
+    outline: none; 
+    border-color: var(--primary-color); 
+    background-color: var(--light-color);
+    box-shadow: 0 0 10px -2px var(--primary-color); 
+}
+
+/* Scrollbar Hiding Utility */
+.elements-list, .settings-content-wrapper, .preview-container, .modal-body, .tree-view-container, .saved-components-list { 
+    -ms-overflow-style: none; 
+    scrollbar-width: none; 
+}
+.elements-list::-webkit-scrollbar, 
+.settings-content-wrapper::-webkit-scrollbar, 
+.preview-container::-webkit-scrollbar, 
+.modal-body::-webkit-scrollbar, 
+.tree-view-container::-webkit-scrollbar, 
+.saved-components-list::-webkit-scrollbar { 
+    display: none; 
+}

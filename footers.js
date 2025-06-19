@@ -1,0 +1,17 @@
+/*
+ * js/templates/footers.js
+ * Contains template data for Footer components.
+*/
+const year = new Date().getFullYear();
+const idPlaceholder = `{{id}}`;
+
+const footers = [
+    {
+        name: 'Dark Footer',
+        type: 'component',
+        preview: 'https://cdn.dribbble.com/users/1053942/screenshots/15442654/media/17154378b88d875a691459a3c10800c1.png?resize=1024x768',
+        html: `<footer class="builder-element" data-id="${idPlaceholder}" data-type="footer" style="padding: 50px 40px; background-color: rgb(43, 53, 66); color: white;"> <div class="builder-element" data-id="${idPlaceholder}" data-type="grid" style="max-width: 1100px; margin: auto; display: grid; grid-template-columns: repeat(4, 1fr); gap: 30px; text-align: left; padding-bottom: 40px; border-bottom: 1px solid #495057;"> <div class="builder-element" data-id="${idPlaceholder}" data-type="v-container"> <h4 class="builder-element" data-id="${idPlaceholder}" data-type="heading" style="margin-bottom: 15px; color: white;">Company</h4> <a href="#" class="builder-element" data-id="${idPlaceholder}" data-type="link" style="text-decoration: none; color: #adb5bd; margin-bottom: 10px; display: block;">About Us</a> <a href="#" class="builder-element" data-id="${idPlaceholder}" data-type="link" style="text-decoration: none; color: #adb5bd; margin-bottom: 10px; display: block;">Careers</a> </div> <div class="builder-element" data-id="${idPlaceholder}" data-type="v-container"> <h4 class="builder-element" data-id="${idPlaceholder}" data-type="heading" style="margin-bottom: 15px; color: white;">Resources</h4> <a href="#" class="builder-element" data-id="${idPlaceholder}" data-type="link" style="text-decoration: none; color: #adb5bd; margin-bottom: 10px; display: block;">Blog</a> <a href="#" class="builder-element" data-id="${idPlaceholder}" data-type="link" style="text-decoration: none; color: #adb5bd; margin-bottom: 10px; display: block;">Help Center</a> </div> <div class="builder-element" data-id="${idPlaceholder}" data-type="v-container"> <h4 class="builder-element" data-id="${idPlaceholder}" data-type="heading" style="margin-bottom: 15px; color: white;">Social</h4> <a href="#" class="builder-element" data-id="${idPlaceholder}" data-type="link" style="text-decoration: none; color: #adb5bd; margin-bottom: 10px; display: block;">Twitter</a> <a href="#" class="builder-element" data-id="${idPlaceholder}" data-type="link" style="text-decoration: none; color: #adb5bd; margin-bottom: 10px; display: block;">LinkedIn</a> </div> <div class="builder-element" data-id="${idPlaceholder}" data-type="v-container"> <h4 class="builder-element" data-id="${idPlaceholder}" data-type="heading" style="margin-bottom: 15px; color: white;">Legal</h4> <a href="#" class="builder-element" data-id="${idPlaceholder}" data-type="link" style="text-decoration: none; color: #adb5bd; margin-bottom: 10px; display: block;">Privacy</a> <a href="#" class="builder-element" data-id="${idPlaceholder}" data-type="link" style="text-decoration: none; color: #adb5bd; margin-bottom: 10px; display: block;">Terms</a> </div> </div> <p class="builder-element" data-id="${idPlaceholder}" data-type="text" style="text-align: center; margin-top: 30px; color: #6c757d;">© ${year} ProBuilder Inc. All rights reserved.</p> </footer>`
+    }
+];
+
+export default footers;

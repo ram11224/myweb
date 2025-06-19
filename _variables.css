@@ -1,0 +1,33 @@
+:root {
+  /* Modern Light Theme */
+  --primary-color: #007BFF; /* Un azul profesional y vibrante */
+  --primary-light: rgba(0, 123, 255, 0.1); /* Tinte azul claro para hovers y estados activos */
+  
+  /* Colores base del tema claro */
+  --secondary-color: #F4F7FC; /* Un gris muy claro, casi blanco, para el fondo del área de previsualización */
+  --dark-color: #F4F7FC;     /* El fondo principal del body, para que no sea un blanco puro y fuerte */
+  --light-color: #FFFFFF;    /* Blanco puro para las superficies principales como paneles y popups */
+  
+  /* Bordes y separadores */
+  --border-color: #E5E7EB;   /* Un gris claro y suave para los bordes */
+  --hover-color: rgba(0, 123, 255, 0.08); /* Un hover aún más sutil para elementos sobre blanco */
+  
+  /* Tipografía */
+  --text-color: #333745;     /* Un gris oscuro (casi negro) para el texto principal, mejora la legibilidad */
+  --text-light: #6B7280;     /* Un gris medio para texto secundario y labels */
+  
+  /* Colores de estado (mantienen la viveza) */
+  --danger-color: #e53e3e;   /* Un rojo claro y moderno */
+  --info-color: #3182ce;
+  --success-color: #38a169;  /* Un verde agradable */
+
+  /* Variables de Interacción */
+  --focus-border: var(--primary-color);
+  --lock-overlay: rgba(0, 123, 255, 0.15);
+  --placeholder-bg: rgba(0, 123, 255, 0.08);
+
+  --selection-color: var(--primary-color);
+  --selection-shadow: rgba(0, 123, 255, 0.25);
+  --selection-label-bg: #EBF8FF; /* Un azul pastel sólido para el fondo de la etiqueta, mejor contraste */
+  --selection-label-text: var(--primary-color);
+}

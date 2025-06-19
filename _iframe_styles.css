@@ -1,0 +1,135 @@
+.builder-element {
+/* MODIFIED: Increased transition duration for a smoother selection effect */
+transition: box-shadow 0.3s ease-out, outline 0.3s ease-out;
+}
+
+
+/* Glowing Selection Effect */
+.selected-element {
+outline: none !important;
+position: relative;
+z-index: 100;
+cursor: move;
+box-shadow: 0 0 0 2px var(--selection-color), 0 0 15px var(--selection-shadow);
+}
+.selected-element::before {               
+content: attr(data-type);
+position: absolute;
+top: -22px;
+left: -2px;
+background: var(--selection-label-bg);
+color: var(--selection-label-text);
+font-weight: 600;
+font-size: 10px;
+padding: 3px 6px;
+border-radius: 4px;
+font-family: 'Segoe UI', sans-serif;
+text-transform: capitalize;
+z-index: 110;
+border: 1px solid var(--primary-light);
+}
+.drop-container-hover {
+    box-shadow: inset 0 0 0 2px var(--selection-color) !important;
+}
+.drop-placeholder {
+height: 50px;
+background-color: var(--placeholder-bg);
+border: 1px dashed var(--primary-color);
+border-radius: 5px;
+margin: 10px 0;
+box-sizing: border-box;
+transition: all 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+transform-origin: top;
+transform: scaleY(0);
+opacity: 0;
+height: 0;
+}
+.drop-placeholder.drop-placeholder-active {
+transform: scaleY(1);
+opacity: 1;
+height: 50px;
+box-shadow: 0 0 10px var(--primary-light);
+}
+.dragging-in-iframe {
+opacity: 0.4;
+}
+
+.drag-preview-ghost {
+position: absolute;
+top: -1000px;  
+left: -1000px;
+background-color: var(--primary-color);
+color: #FFFFFF;
+padding: 8px 15px;
+border-radius: 6px;
+font-family: 'Segoe UI', sans-serif;
+font-size: 14px;
+font-weight: 600;
+display: flex;
+align-items: center;
+gap: 8px;
+z-index: 9999;
+pointer-events: none;  
+box-shadow: 0 5px 15px rgba(0, 123, 255, 0.3);
+}
+.drag-preview-ghost i {
+font-size: 16px;
+}
+/* Direct Manipulation Handles */
+.resize-handle, .lock-handle {
+position: absolute;
+width: 20px;
+height: 20px;
+background: var(--primary-color);
+color: #FFFFFF;
+display: flex;
+align-items: center;
+justify-content: center;
+font-size: 12px;
+z-index: 120;
+box-shadow: 0 0 8px var(--primary-color);
+}
+.resize-handle {
+bottom: -2px;
+right: -2px;
+cursor: nwse-resize;
+border-top-left-radius: 5px;
+}
+.lock-handle {
+top: -2px;
+right: -2px;
+cursor: pointer;
+border-bottom-left-radius: 5px;
+}
+/* Locking Styles */
+.is-locked {
+cursor: not-allowed !important;
+}
+.is-locked::after {
+content: '';
+position: absolute;
+top: 0;
+left: 0;
+width: 100%;
+height: 100%;
+background: repeating-linear-gradient(45deg, transparent, transparent 5px, var(--lock-overlay) 5px, var(--lock-overlay) 10px);
+pointer-events: none;
+z-index: 105;
+}
+.is-locked .resize-handle {
+display: none;
+}
+.is-locked .lock-handle {
+background-color: var(--danger-color);
+box-shadow: 0 0 8px var(--danger-color);
+color: white;
+}
+.is-locked > *:not(.lock-handle) {
+pointer-events: none;
+}
+.is-locked .lock-handle {
+pointer-events: auto !important;
+}
+.is-locked[contenteditable="true"] {
+pointer-events: none;
+}
