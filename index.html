@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pro Website Builder</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <link href="https://fonts.googleapis.com/css2?family=Inter&family=Poppins&family=Space+Grotesk&family=Urbanist&family=Manrope&family=Roboto&family=Nunito&family=Work+Sans&family=Lexend&family=Mulish&family=Rubik&family=DM+Sans&family=Outfit&family=Be+Vietnam+Pro&family=Quicksand&family=Public+Sans&family=Figtree&family=Cabin&family=Barlow&family=Asap&display=swap" rel="stylesheet">
+    
+    <!-- MODIFIED: Updated path for the new CSS structure -->
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <!-- Go Back Button (For Testing Mode) -->
+    <button class="btn" id="goBackBtn"><i class="fas fa-arrow-left"></i> Back to Editor</button>
+    
+<!-- Left Vertical Strip Panel -->
+<div class="vertical-strip-panel left-strip">
+    <button class="strip-btn" data-panel-type="elements" data-category="layout" data-tooltip="Layout"><i class="fas fa-layer-group"></i>Layout</button>
+    <button class="strip-btn" data-panel-type="elements" data-category="basic" data-tooltip="Basic"><i class="fas fa-cube"></i>Basic</button>
+    <button class="strip-btn" data-panel-type="elements" data-category="media" data-tooltip="Media & Content"><i class="fas fa-photo-video"></i>Media</button>
+    <button class="strip-btn" data-panel-type="elements" data-category="interactive" data-tooltip="Interactive"><i class="fas fa-mouse-pointer"></i>Interactive</button>
+    <button class="strip-btn" data-panel-type="elements" data-category="forms" data-tooltip="Forms"><i class="fab fa-wpforms"></i>Forms</button>
+    <div class="strip-divider"></div>
+    <button class="strip-btn" data-panel-type="elements" data-category="saved" data-tooltip="Saved Components"><i class="fas fa-bookmark"></i>Saved</button>
+    <button class="strip-btn" data-panel-type="elements" data-category="structure" data-tooltip="Structure"><i class="fas fa-sitemap"></i>Structure</button>
+</div>
+
+<!-- Floating Elements Popup -->
+<div class="floating-popup" id="elementsPopup">
+    <div class="popup-header" id="elementsPopupHeader">
+        <h4 id="elementsPopupTitle">Elements</h4>
+        <button class="close-popup-btn" id="closeElementsPopupBtn">×</button>
+    </div>
+    <div class="popup-content">
+        <div id="elementsListContainer" class="popup-content-section">
+            <div class="elements-list">
+                <!-- Element Categories will be shown/hidden here -->
+                <div class="element-category" data-category="layout">
+                    <div class="category-title">Layout</div>
+                    <div class="elements-grid">
+                        <div class="element-item" data-type="body-selector"><i class="element-icon fas fa-code"></i><div class="element-name">Body</div></div>
+                        <div class="element-item" draggable="true" data-type="header"><i class="element-icon fas fa-window-maximize"></i><div class="element-name">Header</div></div>
+                        <div class="element-item" draggable="true" data-type="footer"><i class="element-icon fas fa-shoe-prints"></i><div class="element-name">Footer</div></div>
+                        <div class="element-item" draggable="true" data-type="section"><i class="element-icon fas fa-square-full"></i><div class="element-name">Section</div></div>
+                        <div class="element-item" draggable="true" data-type="h-container"><i class="element-icon fas fa-ellipsis-h"></i><div class="element-name">H-Container</div></div>
+                        <div class="element-item" draggable="true" data-type="v-container"><i class="element-icon fas fa-ellipsis-v"></i><div class="element-name">V-Container</div></div>
+                        <div class="element-item" draggable="true" data-type="grid"><i class="element-icon fas fa-th"></i><div class="element-name">Grid</div></div>
+                        <div class="element-item" draggable="true" data-type="columns"><i class="element-icon fas fa-columns"></i><div class="element-name">Columns</div></div>
+                        <div class="element-item" draggable="true" data-type="divider"><i class="element-icon fas fa-minus"></i><div class="element-name">Divider</div></div>
+                        <div class="element-item" draggable="true" data-type="spacer"><i class="element-icon fas fa-arrows-alt-v"></i><div class="element-name">Spacer</div></div>
+                    </div>
+                </div>
+                <div class="element-category" data-category="basic">
+                    <div class="category-title">Basic</div>
+                    <div class="elements-grid">
+                        <div class="element-item" draggable="true" data-type="heading"><i class="element-icon fas fa-heading"></i><div class="element-name">Heading</div></div>
+                        <div class="element-item" draggable="true" data-type="text"><i class="element-icon fas fa-paragraph"></i><div class="element-name">Text</div></div>
+                        <div class="element-item" draggable="true" data-type="button"><i class="element-icon fas fa-square"></i><div class="element-name">Button</div></div>
+                        <div class="element-item" draggable="true" data-type="icon"><i class="element-icon fas fa-star"></i><div class="element-name">Icon</div></div>
+                        <div class="element-item" draggable="true" data-type="link"><i class="element-icon fas fa-link"></i><div class="element-name">Link</div></div>
+                        <div class="element-item" draggable="true" data-type="list-ul"><i class="element-icon fas fa-list-ul"></i><div class="element-name">List (Unordered)</div></div>
+                        <div class="element-item" draggable="true" data-type="list-ol"><i class="element-icon fas fa-list-ol"></i><div class="element-name">List (Ordered)</div></div>
+                        <div class="element-item" draggable="true" data-type="alert"><i class="element-icon fas fa-exclamation-triangle"></i><div class="element-name">Alert</div></div>
+                        <div class="element-item" draggable="true" data-type="badge"><i class="element-icon fas fa-tag"></i><div class="element-name">Badge</div></div>
+                        <div class="element-item" draggable="true" data-type="quote"><i class="element-icon fas fa-quote-left"></i><div class="element-name">Blockquote</div></div>
+                        <div class="element-item" draggable="true" data-type="table"><i class="element-icon fas fa-table"></i><div class="element-name">Table</div></div>
+                    </div>
+                </div>
+                <div class="element-category" data-category="media">
+                    <div class="category-title">Media & Content</div>
+                    <div class="elements-grid">
+                        <div class="element-item" draggable="true" data-type="image"><i class="element-icon fas fa-image"></i><div class="element-name">Image</div></div>
+                        <div class="element-item" draggable="true" data-type="video"><i class="element-icon fas fa-video"></i><div class="element-name">Video</div></div>
+                        <div class="element-item" draggable="true" data-type="audio"><i class="element-icon fas fa-volume-up"></i><div class="element-name">Audio</div></div>
+                        <div class="element-item" draggable="true" data-type="gmap"><i class="element-icon fas fa-map-marked-alt"></i><div class="element-name">Google Map</div></div>
+                        <div class="element-item" draggable="true" data-type="card"><i class="element-icon fas fa-id-card"></i><div class="element-name">Card</div></div>
+                        <div class="element-item" draggable="true" data-type="hero"><i class="element-icon fas fa-mountain-sun"></i><div class="element-name">Hero Section</div></div>
+                        <div class="element-item" draggable="true" data-type="testimonial"><i class="element-icon fas fa-comment-dots"></i><div class="element-name">Testimonial</div></div>
+                        <div class="element-item" draggable="true" data-type="pricing-table"><i class="element-icon fas fa-dollar-sign"></i><div class="element-name">Pricing Table</div></div>
+                        <div class="element-item" draggable="true" data-type="team-member"><i class="element-icon fas fa-user-friends"></i><div class="element-name">Team Member</div></div>
+                        <div class="element-item" draggable="true" data-type="html"><i class="element-icon fas fa-code"></i><div class="element-name">Custom HTML</div></div>
+                    </div>
+                </div>
+                <div class="element-category" data-category="interactive">
+                    <div class="category-title">Interactive</div>
+                    <div class="elements-grid">
+                        <div class="element-item" draggable="true" data-type="accordion"><i class="element-icon fas fa-align-justify"></i><div class="element-name">Accordion</div></div>
+                        <div class="element-item" draggable="true" data-type="tabs"><i class="element-icon fas fa-folder-open"></i><div class="element-name">Tabs</div></div>
+                        <div class="element-item" draggable="true" data-type="slider"><i class="element-icon fas fa-images"></i><div class="element-name">Image Slider</div></div>
+                        <div class="element-item" draggable="true" data-type="progress-bar"><i class="element-icon fas fa-spinner"></i><div class="element-name">Progress Bar</div></div>
+                        <div class="element-item" draggable="true" data-type="countdown"><i class="element-icon fas fa-stopwatch"></i><div class="element-name">Countdown</div></div>
+                        <div class="element-item" draggable="true" data-type="social-share"><i class="element-icon fas fa-share-alt"></i><div class="element-name">Social Share</div></div>
+                    </div>
+                </div>
+                <div class="element-category" data-category="forms">
+                    <div class="category-title">Forms</div>
+                    <div class="elements-grid">
+                        <div class="element-item" draggable="true" data-type="form"><i class="element-icon fas fa-file-alt"></i><div class="element-name">Form</div></div>
+                        <div class="element-item" draggable="true" data-type="input"><i class="element-icon fas fa-keyboard"></i><div class="element-name">Input Field</div></div>
+                        <div class="element-item" draggable="true" data-type="textarea"><i class="element-icon fas fa-file-signature"></i><div class="element-name">Text Area</div></div>
+                        <div class="element-item" draggable="true" data-type="select"><i class="element-icon fas fa-caret-square-down"></i><div class="element-name">Select Dropdown</div></div>
+                        <div class="element-item" draggable="true" data-type="checkbox"><i class="element-icon fas fa-check-square"></i><div class="element-name">Checkbox</div></div>
+                        <div class="element-item" draggable="true" data-type="radio"><i class="element-icon fas fa-dot-circle"></i><div class="element-name">Radio Buttons</div></div>
+                    </div>
+                </div>
+                <div class="element-category" data-category="saved">
+                    <div class="category-title">My Saved Components</div>
+                    <div id="savedComponentsContainer" class="saved-components-list">
+                       <!-- Saved components will be dynamically inserted here -->
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="tree-view-container popup-content-section" id="treeViewContainer">
+            <!-- Tree will be generated here by JavaScript -->
+        </div>
+    </div>
+</div>
+
+<!-- Main Content -->
+<div class="content-area">
+    <div class="top-bar">
+        <div style="display: flex; align-items: center; gap: 15px;">
+            <div class="logo">ProBuilder</div>
+        </div>
+
+        <!-- MODIFIED: Active Page Display with glow effect -->
+        <div class="active-page-indicator">
+            <div class="glow-dot"></div>
+            <span>Active:</span>
+            <b id="activePageName">...</b>
+        </div>
+
+        <div class="top-bar-actions">
+            <button class="btn btn-outline btn-icon" id="pagesBtn" data-tooltip="Manage Pages"><i class="fas fa-file-alt"></i></button>
+            <button class="btn btn-outline btn-icon" id="templatesBtn" data-tooltip="Templates"><i class="fas fa-layer-group"></i></button>
+            <button class="btn btn-outline btn-icon" id="resetBtn" data-tooltip="Reset Page"><i class="fas fa-sync-alt"></i></button>
+            
+            <button class="btn btn-outline btn-icon" id="undoBtn" data-tooltip="Undo (Ctrl+Z)" disabled><i class="fas fa-undo"></i></button>
+            <button class="btn btn-outline btn-icon" id="redoBtn" data-tooltip="Redo (Ctrl+Y)" disabled><i class="fas fa-redo"></i></button>
+
+            <div class="device-controls">
+                <button class="device-btn active" data-device="desktop" data-tooltip="Desktop View"><i class="fas fa-desktop"></i></button>
+                <button class="device-btn" data-device="tablet" data-tooltip="Tablet View"><i class="fas fa-tablet-alt"></i></button>
+                <button class="device-btn" data-device="mobile" data-tooltip="Mobile View"><i class="fas fa-mobile-alt"></i></button>
+            </div>
+
+            <div class="preview-actions-container">
+                <button class="btn btn-outline btn-icon" id="previewActionsToggle" data-tooltip="Preview Options"><i class="fas fa-eye"></i><i class="fas fa-caret-down" style="font-size: 10px; margin-left: 2px;"></i></button>
+                <div class="preview-dropdown">
+                    <a href="#" class="dropdown-item" id="testingModeBtn"><i class="fas fa-vial"></i> Testing Mode</a>
+                    <a href="#" class="dropdown-item" id="viewInNewTabBtn"><i class="fas fa-external-link-alt"></i> View in new tab</a>
+                </div>
+            </div>
+
+            <button class="btn btn-primary btn-icon" id="saveBtn" data-tooltip="Save Project"><i class="fas fa-save"></i></button>
+        </div>
+    </div>
+    <div class="preview-container" id="previewContainer">
+        <div class="preview-wrapper desktop-frame" id="previewWrapper"><iframe class="preview-iframe" id="previewIframe"></iframe></div>
+    </div>
+</div>
+
+<!-- Right Vertical Strip Panel -->
+<div class="vertical-strip-panel right-strip">
+    <button class="strip-btn" data-panel-type="settings" data-category="content" data-tooltip="Content"><i class="fas fa-paragraph"></i>Content</button>
+    <button class="strip-btn" data-panel-type="settings" data-category="style" data-tooltip="Style"><i class="fas fa-palette"></i>Style</button>
+    <button class="strip-btn" data-panel-type="settings" data-category="hover" data-tooltip="Hover"><i class="fas fa-mouse-pointer"></i>Hover</button>
+    <button class="strip-btn" data-panel-type="settings" data-category="animation" data-tooltip="Animation"><i class="fas fa-play-circle"></i>Animation</button>
+    <button class="strip-btn" data-panel-type="settings" data-category="advanced" data-tooltip="Advanced"><i class="fas fa-cogs"></i>Advanced</button>
+</div>
+
+<!-- Floating Settings Popup -->
+<div class="floating-popup" id="settingsPopup">
+    <div class="popup-header" id="settingsPopupHeader">
+        <h4 id="settingsPopupTitle">Settings</h4>
+        <button class="close-popup-btn" id="closeSettingsPopupBtn">×</button>
+    </div>
+    <div class="popup-content">
+        <div class="settings-content-wrapper">
+            <div id="noElementSelected" style="text-align: center; color: var(--text-light); padding-top: 50px;"><i class="fas fa-mouse-pointer fa-3x" style="margin-bottom: 15px;"></i><p>Select an element to edit.</p></div>
+            <div id="elementSettings" class="hidden">
+                <!-- Content Tab -->
+                <div class="settings-section popup-content-section" data-tab-content="content">
+                    <div class="form-group hidden" id="group-contentText"><label class="form-label">Text</label><textarea class="form-control" id="contentText" rows="3"></textarea></div>
+                    
+                    <div class="form-group hidden" id="group-contentLink">
+                      <label class="form-label">Link To</label>
+                      <select class="form-select" id="contentPageLink" style="margin-bottom: 8px;">
+                          <!-- Page links will be populated here by JS -->
+                      </select>
+                      <input type="text" class="form-control" id="contentLink" placeholder="e.g., https://example.com">
+                    </div>
+                    <div class="form-group hidden" id="group-contentImageUrl"><label class="form-label">Image URL</label><input type="text" class="form-control" id="contentImageUrl"></div>
+                    <div class="form-group hidden" id="group-contentVideoUrl"><label class="form-label">Video URL (YouTube/Vimeo)</label><input type="text" class="form-control" id="contentVideoUrl" placeholder="e.g., https://www.youtube.com/watch?v=..."></div>
+                    <div class="form-group hidden" id="group-contentAudioUrl"><label class="form-label">Audio URL</label><input type="text" class="form-control" id="contentAudioUrl" placeholder="e.g., https://example.com/audio.mp3"></div>
+                    <div class="form-group hidden" id="group-contentMapQuery"><label class="form-label">Google Map Location</label><input type="text" class="form-control" id="contentMapQuery" placeholder="e.g., Eiffel Tower, Paris"></div>
+                    <div class="form-group hidden" id="group-contentIcon"><label class="form-label">Icon Class (Font Awesome)</label><input type="text" class="form-control" id="contentIcon" placeholder="e.g., fas fa-star"></div>
+                    <div class="form-group hidden" id="group-contentProgress"><label class="form-label">Progress Percentage</label><input type="number" class="form-control" id="contentProgress" min="0" max="100"></div>
+                    <div class="form-group hidden" id="group-contentListItems"><label class="form-label">List Items (HTML supported)</label><div id="listItemsEditor"></div><button class="btn btn-primary btn-sm" id="addListItemBtn" style="margin-top: 10px;"><i class="fas fa-plus"></i> Add List Item</button></div>
+                    <div class="form-group hidden" id="group-contentCustomHtml"><label class="form-label">Custom HTML</label><p class="form-label" style="font-size:11px; margin-bottom: 5px;">Warning: Invalid HTML can break the layout.</p><textarea class="form-control" id="contentCustomHtml" rows="8"></textarea></div>
+                </div>
+                <!-- Style Tab -->
+                <div class="settings-section popup-content-section" data-tab-content="style">
+                    <div id="group-layout" class="hidden">
+                        <div class="section-title">Layout & Display</div>
+                        <div class="form-group"><label class="form-label">Display</label><select class="form-select" id="styleDisplay"><option value="block">Block</option><option value="flex">Flex</option><option value="inline">Inline</option><option value="inline-block">Inline-Block</option><option value="inline-flex">Inline-Flex</option><option value="grid">Grid</option><option value="none">None</option></select></div>
+                        <div id="flexbox-options" class="hidden"><div class="form-group"><label class="form-label">Direction</label><select class="form-select" id="styleFlexDirection"><option value="row">Row</option><option value="row-reverse">Row Reverse</option><option value="column">Column</option><option value="column-reverse">Column Reverse</option></select></div><div class="form-group"><label class="form-label">Wrap</label><select class="form-select" id="styleFlexWrap"><option value="nowrap">No Wrap</option><option value="wrap">Wrap</option><option value="wrap-reverse">Wrap Reverse</option></select></div><div class="form-group"><label class="form-label">Justify Content</label><select class="form-select" id="styleJustifyContent"><option value="flex-start">Start</option><option value="flex-end">End</option><option value="center">Center</option><option value="space-between">Space Between</option><option value="space-around">Space Around</option><option value="space-evenly">Space Evenly</option></select></div><div class="form-group"><label class="form-label">Align Items</label><select class="form-select" id="styleAlignItems"><option value="stretch">Stretch</option><option value="flex-start">Start</option><option value="flex-end">End</option><option value="center">Center</option><option value="baseline">Baseline</option></select></div></div>
+                        <div class="input-group-grid"><div class="form-group"><label class="form-label">Width</label><input type="text" class="form-control" id="styleWidth" placeholder="auto"></div><div class="form-group"><label class="form-label">Height</label><input type="text" class="form-control" id="styleHeight" placeholder="auto"></div></div>
+                        <div class="form-group"><label class="form-label">Max Height (px, empty for auto)</label><input type="number" class="form-control" id="styleMaxHeight" placeholder="auto"></div>
+                        <div class="input-group-grid"><div class="form-group"><label class="form-label">Overflow Y</label><select class="form-select" id="styleOverflowY"><option value="visible">Visible</option><option value="hidden">Hidden</option><option value="scroll">Scroll</option><option value="auto">Auto</option></select></div><div class="form-group"><label class="form-label">Overflow X</label><select class="form-select" id="styleOverflowX"><option value="visible">Visible</option><option value="hidden">Hidden</option><option value="scroll">Scroll</option><option value="auto">Auto</option></select></div></div>
+                    </div>
+                    <div class="section-title">Visibility</div>
+                    <div class="form-group"><label class="form-label">Show on</label><div id="visibility-controls"><div class="form-check"><input type="checkbox" id="visibilityDesktop" data-device-class="d-desktop-none"><label for="visibilityDesktop"><i class="fas fa-desktop" title="Desktop"></i></label></div><div class="form-check"><input type="checkbox" id="visibilityTablet" data-device-class="d-tablet-none"><label for="visibilityTablet"><i class="fas fa-tablet-alt" title="Tablet"></i></label></div><div class="form-check"><input type="checkbox" id="visibilityMobile" data-device-class="d-mobile-none"><label for="visibilityMobile"><i class="fas fa-mobile-alt" title="Mobile"></i></label></div></div></div>
+                    <div class="section-title">Spacing</div>
+                    <div class="form-group"><label class="form-label">Margin (px)</label><div class="input-group-grid-four"><input type="number" class="form-control" id="styleMarginTop" placeholder="T"><input type="number" class="form-control" id="styleMarginRight" placeholder="R"><input type="number" class="form-control" id="styleMarginBottom" placeholder="B"><input type="number" class="form-control" id="styleMarginLeft" placeholder="L"></div></div>
+                    <div class="form-group"><label class="form-label">Padding (All, px)</label><input type="number" class="form-control" id="stylePaddingAll" min="0"></div>
+                    <div class="form-group"><label class="form-label">Padding (px)</label><div class="input-group-grid-four"><input type="number" class="form-control" id="stylePaddingTop" placeholder="T"><input type="number" class="form-control" id="stylePaddingRight" placeholder="R"><input type="number" class="form-control" id="stylePaddingBottom" placeholder="B"><input type="number" class="form-control" id="stylePaddingLeft" placeholder="L"></div></div>
+                    <div class="section-title">Typography</div>
+                    <div class="form-group"><label class="form-label">Font Color (RGBA)</label><div class="input-group-grid-four"><input type="number" class="form-control" id="styleTextColorR" min="0" max="255" placeholder="R"><input type="number" class="form-control" id="styleTextColorG" min="0" max="255" placeholder="G"><input type="number" class="form-control" id="styleTextColorB" min="0" max="255" placeholder="B"><input type="number" class="form-control" id="styleTextColorA" min="0" max="1" step="0.1" placeholder="A"></div></div>
+                    <div class="input-group-grid"><div class="form-group"><label class="form-label">Font Size (px)</label><input type="number" class="form-control" id="styleFontSize" min="8" max="100"></div><div class="form-group"><label class="form-label">Font Weight</label><select class="form-select" id="styleFontWeight"><option value="">Default</option><option value="100">100 Thin</option><option value="200">200 Extra-Light</option><option value="300">300 Light</option><option value="400">400 Normal</option><option value="500">500 Medium</option><option value="600">600 Semi-Bold</option><option value="700">700 Bold</option><option value="800">800 Extra-Bold</option><option value="900">900 Black</option></select></div></div>
+                    <div class="input-group-grid"><div class="form-group"><label class="form-label">Line Height</label><input type="text" class="form-control" id="styleLineHeight" placeholder="1.5"></div><div class="form-group"><label class="form-label">Letter Spacing (px)</label><input type="number" class="form-control" id="styleLetterSpacing"></div></div>
+                    <div class="input-group-grid"><div class="form-group"><label class="form-label">Text Align</label><select class="form-select" id="styleTextAlign"><option value="left">Left</option><option value="center">Center</option><option value="right">Right</option><option value="justify">Justify</option></select></div><div class="form-group"><label class="form-label">Transform</label><select class="form-select" id="styleTextTransform"><option value="none">None</option><option value="capitalize">Capitalize</option><option value="uppercase">Uppercase</option><option value="lowercase">Lowercase</option></select></div></div>
+                    <div class="form-group hidden" id="group-link-decoration"><label class="form-label">Decoration</label><div class="input-group-grid-two"><select class="form-select" id="styleTextDecorationLine"><option value="none">None</option><option value="underline">Underline</option><option value="overline">Overline</option><option value="line-through">Line-through</option></select><select class="form-select" id="styleTextDecorationStyle"><option value="solid">Solid</option><option value="wavy">Wavy</option><option value="dotted">Dotted</option><option value="dashed">Dashed</option><option value="double">Double</option></select></div><div class="form-group" style="margin-top: 8px;"><label class="form-label">Decoration Color (RGBA)</label><div class="input-group-grid-four"><input type="number" class="form-control" id="styleTextDecorationColorR" min="0" max="255" placeholder="R"><input type="number" class="form-control" id="styleTextDecorationColorG" min="0" max="255" placeholder="G"><input type="number" class="form-control" id="styleTextDecorationColorB" min="0" max="255" placeholder="B"><input type="number" class="form-control" id="styleTextDecorationColorA" min="0" max="1" step="0.1" placeholder="A"></div></div></div>
+                    <div class="section-title">Background</div>
+                    <div class="form-group"><label class="form-label">Background Type</label><div class="radio-group-tabs"><input type="radio" name="bgType" id="bgTypeSolid" value="solid" checked><label for="bgTypeSolid">Solid</label><input type="radio" name="bgType" id="bgTypeGradient" value="gradient"><label for="bgTypeGradient">Gradient</label></div></div>
+                    <div id="solidBgOptions"><div class="form-group"><label class="form-label">BG Color (RGBA)</label><div class="input-group-grid-four"><input type="number" class="form-control" id="styleBgColorR" min="0" max="255" placeholder="R"><input type="number" class="form-control" id="styleBgColorG" min="0" max="255" placeholder="G"><input type="number" class="form-control" id="styleBgColorB" min="0" max="255" placeholder="B"><input type="number" class="form-control" id="styleBgColorA" min="0" max="1" step="0.1" placeholder="A"></div></div></div>
+                    <div id="gradient-options" class="hidden"><div class="input-group-grid"><div class="form-group"><label class="form-label">Type</label><select class="form-select" id="styleBgGradientType"><option value="linear">Linear</option><option value="radial">Radial</option></select></div><div class="form-group"><label class="form-label">Angle (°)</label><input type="number" class="form-control" id="styleBgGradientAngle" value="90"></div></div><div class="form-group"><label class="form-label">Color 1 (RGBA)</label><div class="input-group-grid-four"><input type="number" class="form-control" id="styleBgGradientColor1R" min="0" max="255"><input type="number" class="form-control" id="styleBgGradientColor1G" min="0" max="255"><input type="number" class="form-control" id="styleBgGradientColor1B" min="0" max="255"><input type="number" class="form-control" id="styleBgGradientColor1A" min="0" max="1" step="0.1" value="1"></div></div><div class="form-group"><label class="form-label">Color 2 (RGBA)</label><div class="input-group-grid-four"><input type="number" class="form-control" id="styleBgGradientColor2R" min="0" max="255"><input type="number" class="form-control" id="styleBgGradientColor2G" min="0" max="255"><input type="number" class="form-control" id="styleBgGradientColor2B" min="0" max="255"><input type="number" class="form-control" id="styleBgGradientColor2A" min="0" max="1" step="0.1" value="1"></div></div></div>
+                    <div class="form-group"><label class="form-label">BG Image URL</label><input type="text" class="form-control" id="styleBgImageUrl" placeholder="https://example.com/image.jpg"></div>
+                    <div class="input-group-grid"><div class="form-group"><label class="form-label">Size</label><select class="form-select" id="styleBgSize"><option value="auto">Auto</option><option value="cover">Cover</option><option value="contain">Contain</option></select></div><div class="form-group"><label class="form-label">Position</label><input type="text" class="form-control" id="styleBgPosition" placeholder="center center"></div></div>
+                    <div class="section-title">Border</div>
+                    <div class="form-group"><label class="form-label">All Borders</label><div class="input-group"><input type="number" class="form-control" id="styleBorderAllWidth" placeholder="Width"><select class="form-select" id="styleBorderAllStyle"><option value="none">None</option><option value="solid">Solid</option><option value="dashed">Dashed</option><option value="dotted">Dotted</option></select></div></div>
+                    <div class="form-group"><label class="form-label">All Borders Color (RGBA)</label><div class="input-group-grid-four"><input type="number" class="form-control" id="styleBorderAllColorR" min="0" max="255" placeholder="R"><input type="number" class="form-control" id="styleBorderAllColorG" min="0" max="255" placeholder="G"><input type="number" class="form-control" id="styleBorderAllColorB" min="0" max="255" placeholder="B"><input type="number" class="form-control" id="styleBorderAllColorA" min="0" max="1" step="0.1" placeholder="A"></div></div>
+                    <div class="form-group"><label class="form-label">Top</label><div class="input-group"><input type="number" class="form-control" id="styleBorderTopWidth" placeholder="Width"><select class="form-select" id="styleBorderTopStyle"><option value="none">None</option><option value="solid">Solid</option><option value="dashed">Dashed</option><option value="dotted">Dotted</option></select></div><div class="input-group-grid-four" style="margin-top:5px;"><input type="number" class="form-control" id="styleBorderTopColorR" min="0" max="255" placeholder="R"><input type="number" class="form-control" id="styleBorderTopColorG" min="0" max="255" placeholder="G"><input type="number" class="form-control" id="styleBorderTopColorB" min="0" max="255" placeholder="B"><input type="number" class="form-control" id="styleBorderTopColorA" min="0" max="1" step="0.1" placeholder="A"></div></div>
+                    <div class="form-group"><label class="form-label">Right</label><div class="input-group"><input type="number" class="form-control" id="styleBorderRightWidth" placeholder="Width"><select class="form-select" id="styleBorderRightStyle"><option value="none">None</option><option value="solid">Solid</option><option value="dashed">Dashed</option><option value="dotted">Dotted</option></select></div><div class="input-group-grid-four" style="margin-top:5px;"><input type="number" class="form-control" id="styleBorderRightColorR" min="0" max="255" placeholder="R"><input type="number" class="form-control" id="styleBorderRightColorG" min="0" max="255" placeholder="G"><input type="number" class="form-control" id="styleBorderRightColorB" min="0" max="255" placeholder="B"><input type="number" class="form-control" id="styleBorderRightColorA" min="0" max="1" step="0.1" placeholder="A"></div></div>
+                    <div class="form-group"><label class="form-label">Bottom</label><div class="input-group"><input type="number" class="form-control" id="styleBorderBottomWidth" placeholder="Width"><select class="form-select" id="styleBorderBottomStyle"><option value="none">None</option><option value="solid">Solid</option><option value="dashed">Dashed</option><option value="dotted">Dotted</option></select></div><div class="input-group-grid-four" style="margin-top:5px;"><input type="number" class="form-control" id="styleBorderBottomColorR" min="0" max="255" placeholder="R"><input type="number" class="form-control" id="styleBorderBottomColorG" min="0" max="255" placeholder="G"><input type="number" class="form-control" id="styleBorderBottomColorB" min="0" max="255" placeholder="B"><input type="number" class="form-control" id="styleBorderBottomColorA" min="0" max="1" step="0.1" placeholder="A"></div></div>
+                    <div class="form-group"><label class="form-label">Left</label><div class="input-group"><input type="number" class="form-control" id="styleBorderLeftWidth" placeholder="Width"><select class="form-select" id="styleBorderLeftStyle"><option value="none">None</option><option value="solid">Solid</option><option value="dashed">Dashed</option><option value="dotted">Dotted</option></select></div><div class="input-group-grid-four" style="margin-top:5px;"><input type="number" class="form-control" id="styleBorderLeftColorR" min="0" max="255" placeholder="R"><input type="number" class="form-control" id="styleBorderLeftColorG" min="0" max="255" placeholder="G"><input type="number" class="form-control" id="styleBorderLeftColorB" min="0" max="255" placeholder="B"><input type="number" class="form-control" id="styleBorderLeftColorA" min="0" max="1" step="0.1" placeholder="A"></div></div>
+                    <div class="form-group"><label class="form-label">Border Radius (All, px)</label><input type="number" class="form-control" id="styleBorderRadiusAll" min="0"></div>
+                    <div class="form-group"><label class="form-label">Border Radius (px)</label><div class="input-group-grid-four"><input type="number" class="form-control" id="styleBorderRadiusTopLeft" placeholder="TL"><input type="number" class="form-control" id="styleBorderRadiusTopRight" placeholder="TR"><input type="number" class="form-control" id="styleBorderRadiusBottomRight" placeholder="BR"><input type="number" class="form-control" id="styleBorderRadiusBottomLeft" placeholder="BL"></div></div>
+                    <div class="section-title">Box Shadow</div>
+                    <div class="form-group"><label class="form-label">Offsets (H / V)</label><div class="input-group-grid"><input type="number" class="form-control" id="styleBoxShadowH" placeholder="X"><input type="number" class="form-control" id="styleBoxShadowV" placeholder="Y"></div></div>
+                    <div class="form-group"><label class="form-label">Blur / Spread</label><div class="input-group-grid"><input type="number" class="form-control" id="styleBoxShadowBlur" placeholder="Blur"><input type="number" class="form-control" id="styleBoxShadowSpread" placeholder="Spread"></div></div>
+                    <div class="form-group"><label class="form-label">Color & Inset</label><div class="input-group"><div class="input-group-grid-four" style="width:100%"><input type="number" class="form-control" id="styleBoxShadowColorR" min="0" max="255" placeholder="R"><input type="number" class="form-control" id="styleBoxShadowColorG" min="0" max="255" placeholder="G"><input type="number" class="form-control" id="styleBoxShadowColorB" min="0" max="255" placeholder="B"><input type="number" class="form-control" id="styleBoxShadowColorA" min="0" max="1" step="0.1" placeholder="A"></div><div class="form-check" style="padding: 0 10px; flex-shrink: 0;"><input type="checkbox" id="styleBoxShadowInset"><label for="styleBoxShadowInset">Inset</label></div></div></div>
+                    <div class="section-title">Effects</div>
+                    <div class="form-group"><label for="styleOpacity" class="form-label">Opacity</label><input type="range" class="form-control" id="styleOpacity" min="0" max="1" step="0.05"></div>
+                    <div class="form-group"><label for="styleFilterBlur" class="form-label">Filter: Blur (px)</label><input type="number" class="form-control" id="styleFilterBlur" min="0" max="50" placeholder="e.g., 5"></div>
+                    <div class="form-group"><label for="styleBackdropFilterBlur" class="form-label">Backdrop Filter: Blur (px)</label><input type="number" class="form-control" id="styleBackdropFilterBlur" min="0" max="50" placeholder="e.g., 10"></div>
+                </div>
+                <!-- Hover Tab -->
+                <div class="settings-section popup-content-section" data-tab-content="hover">
+                    <div class="section-title">Hover State Styles</div>
+                    <div class="form-group form-check">
+                        <input type="checkbox" id="enableHoverEffect">
+                        <label for="enableHoverEffect" style="font-weight: 600;">Enable Hover Effect</label>
+                    </div>
+                    <p class="form-label" style="font-size:11px; margin-bottom: 15px;">These styles will be applied when a user's mouse is over the element.</p>
+                    <div class="form-group"><label class="form-label">Background Color (RGBA)</label><div class="input-group-grid-four"><input type="number" class="form-control" id="styleHoverBgColorR" min="0" max="255" placeholder="R"><input type="number" class="form-control" id="styleHoverBgColorG" min="0" max="255" placeholder="G"><input type="number" class="form-control" id="styleHoverBgColorB" min="0" max="255" placeholder="B"><input type="number" class="form-control" id="styleHoverBgColorA" min="0" max="1" step="0.1" placeholder="A"></div></div>
+                    <div class="form-group"><label class="form-label">Font Color (RGBA)</label><div class="input-group-grid-four"><input type="number" class="form-control" id="styleHoverTextColorR" min="0" max="255" placeholder="R"><input type="number" class="form-control" id="styleHoverTextColorG" min="0" max="255" placeholder="G"><input type="number" class="form-control" id="styleHoverTextColorB" min="0" max="255" placeholder="B"><input type="number" class="form-control" id="styleHoverTextColorA" min="0" max="1" step="0.1" placeholder="A"></div></div>
+                    <div class="section-title">Border on Hover</div>
+                    <div class="form-group"><label class="form-label">Border Color (RGBA)</label><div class="input-group-grid-four"><input type="number" class="form-control" id="styleHoverBorderColorR" min="0" max="255" placeholder="R"><input type="number" class="form-control" id="styleHoverBorderColorG" min="0" max="255" placeholder="G"><input type="number" class="form-control" id="styleHoverBorderColorB" min="0" max="255" placeholder="B"><input type="number" class="form-control" id="styleHoverBorderColorA" min="0" max="1" step="0.1" placeholder="A"></div></div>
+                    <div class="section-title">Box Shadow on Hover</div>
+                    <div class="form-group"><label class="form-label">Offsets (H / V)</label><div class="input-group-grid"><input type="number" class="form-control" id="styleHoverBoxShadowH" placeholder="X"><input type="number" class="form-control" id="styleHoverBoxShadowV" placeholder="Y"></div></div>
+                    <div class="form-group"><label class="form-label">Blur / Spread</label><div class="input-group-grid"><input type="number" class="form-control" id="styleHoverBoxShadowBlur" placeholder="Blur"><input type="number" class="form-control" id="styleHoverBoxShadowSpread" placeholder="Spread"></div></div>
+                    <div class="form-group"><label class="form-label">Color & Inset</label><div class="input-group"><div class="input-group-grid-four" style="width:100%"><input type="number" class="form-control" id="styleHoverBoxShadowColorR" min="0" max="255" placeholder="R"><input type="number" class="form-control" id="styleHoverBoxShadowColorG" min="0" max="255" placeholder="G"><input type="number" class="form-control" id="styleHoverBoxShadowColorB" min="0" max="255" placeholder="B"><input type="number" class="form-control" id="styleHoverBoxShadowColorA" min="0" max="1" step="0.1" placeholder="A"></div><div class="form-check" style="padding: 0 10px; flex-shrink: 0;"><input type="checkbox" id="styleHoverBoxShadowInset"><label for="styleHoverBoxShadowInset">Inset</label></div></div></div>
+                    <div class="section-title">Hover Animation</div>
+                    <div class="form-group"><label class="form-label">Animation Type</label><select id="styleHoverAnimation" class="form-select"><option value="">None</option><option value="grow">Grow</option><option value="shrink">Shrink</option><option value="float">Float</option><option value="pulse-hover">Pulse</option></select></div>
+                </div>
+                <!-- Animation Tab -->
+                <div class="settings-section popup-content-section" data-tab-content="animation">
+                    <div class="section-title">Entrance Animation</div>
+                    <div class="form-group"><label class="form-label">Animation</label><select class="form-select" id="animationName"><option value="">None</option><optgroup label="Attention Seekers"><option value="bounce">Bounce</option><option value="flash">Flash</option><option value="pulse">Pulse</option><option value="rubberBand">Rubber Band</option><option value="shakeX">Shake X</option><option value="shakeY">Shake Y</option><option value="headShake">Head Shake</option><option value="swing">Swing</option><option value="tada">Tada</option><option value="wobble">Wobble</option><option value="jello">Jello</option><option value="heartBeat">Heart Beat</option></optgroup><optgroup label="Bouncing Entrances"><option value="bounceIn">Bounce In</option><option value="bounceInDown">Bounce In Down</option><option value="bounceInLeft">Bounce In Left</option><option value="bounceInRight">Bounce In Right</option><option value="bounceInUp">Bounce In Up</option></optgroup><optgroup label="Fading Entrances"><option value="fadeIn">Fade In</option><option value="fadeInDown">Fade In Down</option><option value="fadeInDownBig">Fade In Down Big</option><option value="fadeInLeft">Fade In Left</option><option value="fadeInLeftBig">Fade In Left Big</option><option value="fadeInRight">Fade In Right</option><option value="fadeInRightBig">Fade In Right Big</option><option value="fadeInUp">Fade In Up</option><option value="fadeInUpBig">Fade In Up Big</option><option value="fadeInTopLeft">Fade In Top Left</option><option value="fadeInTopRight">Fade In Top Right</option><option value="fadeInBottomLeft">Fade In Bottom Left</option><option value="fadeInBottomRight">Fade In Bottom Right</option></optgroup><optgroup label="Sliding Entrances"><option value="slideInDown">Slide In Down</option><option value="slideInLeft">Slide In Left</option><option value="slideInRight">Slide In Right</option><option value="slideInUp">Slide In Up</option></optgroup><optgroup label="Zooming Entrances"><option value="zoomIn">Zoom In</option><option value="zoomInDown">Zoom In Down</option><option value="zoomInLeft">Zoom In Left</option><option value="zoomInRight">Zoom In Right</option><option value="zoomInUp">Zoom In Up</option></optgroup></select></div>
+                    <div class="form-group"><label class="form-label">Duration</label><input type="text" class="form-control" id="animationDuration" placeholder="e.g., 1s or 500ms"></div>
+                    <div class="form-group"><label class="form-label">Delay</label><input type="text" class="form-control" id="animationDelay" placeholder="e.g., 0.5s or 200ms"></div>
+                    <div class="form-group"><label class="form-label">Iteration Count</label><input type="text" class="form-control" id="animationIterationCount" placeholder="e.g., 1 or infinite"></div>
+                </div>
+                <!-- Advanced Tab -->
+                <div class="settings-section popup-content-section" data-tab-content="advanced">
+                    <div class="section-title">Attributes</div>
+                    <div class="form-group"><label class="form-label">Element ID</label><input type="text" class="form-control" id="advancedId"></div>
+                    <div class="form-group"><label class="form-label">CSS Classes</label><input type="text" class="form-control" id="advancedClass"></div>
+                    <div class="section-title">Positioning</div>
+                    <div class="form-group"><label class="form-label">Position</label><select class="form-select" id="advancedPosition"><option value="">Default</option><option value="static">Static</option><option value="relative">Relative</option><option value="absolute">Absolute</option><option value="fixed">Fixed</option><option value="sticky">Sticky</option></select></div>
+                    <div class="input-group-grid"><div class="form-group"><label class="form-label">Top</label><input type="text" class="form-control" id="advancedTop" placeholder="auto"></div><div class="form-group"><label class="form-label">Left</label><input type="text" class="form-control" id="advancedLeft" placeholder="auto"></div></div>
+                    <div class="input-group-grid"><div class="form-group"><label class="form-label">Right</label><input type="text" class="form-control" id="advancedRight" placeholder="auto"></div><div class="form-group"><label class="form-label">Bottom</label><input type="text" class="form-control" id="advancedBottom" placeholder="auto"></div></div>
+                    <div class="form-group"><label class="form-label">Z-Index</label><input type="number" class="form-control" id="advancedZIndex" placeholder="auto"></div>
+                    <div class="section-title">Actions</div>
+                    <div id="advancedActions">
+                        <button class="btn btn-success" id="saveComponentBtn"><i class="fas fa-save"></i> Save</button>
+                        <button class="btn btn-danger" id="deleteElementBtn"><i class="fas fa-trash-alt"></i> Delete</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!-- Pages Modal -->
+<div class="modal-overlay" id="pagesModal">
+    <div class="modal-content" style="max-width: 600px; height: auto; max-height: 80vh;">
+        <div class="modal-header">
+            <h2>Manage Pages</h2>
+            <button class="modal-close" id="closePagesModal">×</button>
+        </div>
+        <div class="modal-body" id="pagesModalBody" style="padding: 20px; flex-direction: column;">
+             <ul id="pageListContainer" style="list-style: none; padding: 0; margin: 0; flex-grow: 1; overflow-y: auto;">
+                <!-- Page items will be injected here by JavaScript -->
+            </ul>
+        </div>
+        <div class="modal-footer">
+            <input type="text" id="newPageNameInput" class="form-control" placeholder="New page name (e.g., about-us)">
+            <button class="btn btn-primary" id="addNewPageBtn" style="flex-shrink: 0;"><i class="fas fa-plus"></i> Add Page</button>
+        </div>
+    </div>
+</div>
+
+<!-- Templates Modal -->
+<div class="modal-overlay" id="templatesModal">
+    <div class="modal-content">
+        <div class="modal-header">
+            <h2>Choose a Template</h2>
+            <button class="modal-close" id="closeTemplatesModal">×</button>
+        </div>
+        <div class="modal-body" id="templatesModalBody">
+             <!-- Categories and templates will be injected here by JavaScript -->
+        </div>
+    </div>
+</div>
+
+<!-- Name Component Modal -->
+<div class="modal-overlay" id="nameComponentModal">
+    <div class="modal-content" style="max-width: 400px; height: auto;">
+        <div class="modal-header">
+            <h2>Save Component</h2>
+            <button class="modal-close" id="closeNameComponentModal">×</button>
+        </div>
+        <div class="modal-body" style="padding: 20px;">
+            <div class="form-group">
+                <label for="componentNameInput" class="form-label">Component Name</label>
+                <input type="text" id="componentNameInput" class="form-control" placeholder="e.g., Hero Section">
+            </div>
+        </div>
+        <div class="modal-footer" style="justify-content: flex-end;">
+            <button class="btn btn-outline" id="cancelSaveComponentBtn">Cancel</button>
+            <button class="btn btn-primary" id="confirmSaveComponentBtn">Save Component</button>
+        </div>
+    </div>
+</div>
+
+<!-- MODIFIED: Updated path for the new JS structure -->
+<script src="js/main.js" type="module"></script>
+
+</body>
+</html>
